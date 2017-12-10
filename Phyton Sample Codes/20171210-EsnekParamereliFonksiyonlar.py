@@ -8,10 +8,14 @@ def toplam(*sayılar):
 def sayıSor():
 
     a = input("Yeni sayı eklemek istiyorsanız (Y), İşlemi tamamlamak için (T) tuşlayınız: ")
-    if a ==  ("Y" and "y") :
+    if a ==  ("y") :
+       return True
+    elif a ==  ("Y") :
        return True
 
-    elif a == ("T" and "t"):
+    elif a == ("T"):
+       return False
+    elif a == ("t"):
        return False
     else:
         print("Yanlış giriş yaptınız.\nTekrar giriniz")
