@@ -63,13 +63,18 @@ def oyun(r_sayı):
 ######################################################################
 #                             ANA KOD                                #
 ######################################################################
-
+nokta = "."
 print("Sayı Tahmin Oyunumuza Hoşgeldiniz...")
 time.sleep(1)
 print("Sisteme Girişiniz sağlanıyor")
-time.sleep(2)
-print("\t."),time.sleep(0.5),print("\t."),time.sleep(0.5),print("\t.")
-time.sleep(0.5)
+say = 0
+while (say<3):
+    print(".", end=" ")
+    time.sleep(1)
+    say+=1
+
+
+time.sleep(1)
 TamamDevam=True
 while TamamDevam == True:
     print("""
