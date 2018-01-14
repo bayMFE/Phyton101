@@ -2,6 +2,7 @@
 #BayMFE
 
 import math
+import sys
 kontrol=True
 
 ###################################################################################################
@@ -14,46 +15,51 @@ def dikKenarAl():
         d2 = int(input("Lütfen 2.dik kenar uzunluğunu giriniz: "))
     except ValueError:
         print("Lütfen sadece sayı giriniz.\n")
-        dikKenarAl()
+        d1 = int(0)
+        d2 = int(0)
+        Hipotenus()
     except ZeroDivisionError:
         print("Lütfen sıfırdan farklı bir değer giriniz.\n")
-        dikKenarAl()
+        Hipotenus()
     except UnboundLocalError:
         print("Bir hata oluştu tekrar deneyiniz.\n")
-        dikKenarAl()
-    if d1 == int(0):
-        print("Bir hata oluştu tekrar deneyiniz.\n")
-        dikKenarAl()
-    elif d2 == int(0):
-        print("Bir hata oluştu tekrar deneyiniz.\n")
-        dikKenarAl()
+        Hipotenus()
     return d1,d2
+
+
 def Tekrar():
 
     a = str(input("Yeniden denemek istiyorsanız (Y), Programı sonlandırmak için (S) tuşlayınız: "))
     if a == ("y"):
-        return True
+        kontrol = True
     elif a == ("Y"):
-        return True
+        kontrol = True
 
     elif a == ("S"):
-        return False
+        Cıkıs()
     elif a == ("s"):
-        return False
+        Cıkıs()
     else:
         print("Yanlış giriş yaptınız.\nTekrar giriniz")
-        a = str("")
+        a = str("z")
         Tekrar()
+
+def Hipotenus():
+    dikkenarlar = []
+
+    dikkenarlar.append(dikKenarAl())
+    hipotenus = math.sqrt(((dikkenarlar[0][0]) ** 2) + ((dikkenarlar[0][1]) ** 2))
+    if hipotenus != int(0):
+        print(hipotenus)
+
+def Cıkıs():
+    print("Programımız sonlandırıldı.\nİyi Çalışmalar.")
+    sys.exit()
 
 ###################################################################################################
 
 print("Hipotenüs hesaplama programına hoşgeldiniz.\n\n")
 while kontrol == True:
-    dikkenarlar = []
+    Hipotenus()
+    Tekrar()
 
-    dikkenarlar.append(dikKenarAl())
-    hipotenus = math.sqrt(((dikkenarlar[0][0])**2)+((dikkenarlar[0][1])**2))
-    print(hipotenus)
-    kontrol=Tekrar()
-
-print("Programımız sonlandırıldı.\nİyi Çalışmalar.")
