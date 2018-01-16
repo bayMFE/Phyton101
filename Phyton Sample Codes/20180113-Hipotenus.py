@@ -52,9 +52,7 @@ def Hipotenus():
     if hipotenus != int(0):
         print(hipotenus)
 
-def Cıkıs():
-    print("Programımız sonlandırıldı.\nİyi Çalışmalar.")
-    sys.exit()
+
 
 ###################################################################################################
 

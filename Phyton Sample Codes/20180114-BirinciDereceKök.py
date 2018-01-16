@@ -4,13 +4,16 @@
 
 import math
 import sys
-
+global katsayılar
 kontrol = True
 katsayılar = []
 #--------------------------------------------------------------------------
 
 def KokBul():
-
+    say = 0
+    while say != 3:
+        katsayılar.append(int(0))
+        say += 1
     katsayılar.append(KatsayıAl())
     # (C-B)/A
     A = katsayılar[0]
@@ -23,6 +26,12 @@ def KatsayıAl():
         k_A = int(input("Lütfen A katsayısı için değer giriniz: "))
         k_B = int(input("Lütfen B katsayısı için değer giriniz: "))
         k_C = int(input("Lütfen C katsayısı için değer giriniz: "))
+        if (k_A != 0 and k_B != 0):  # Katsayıların girilen değerlerin arasında sıfır olup olmadığı kontrol ediliyor
+            katsayılar[0] = (k_A)
+            katsayılar[1] = (k_B)
+            katsayılar[2] = (k_C)
+        else:
+            print("Katsayı değerleri sıfır olamaz.Tekrar deneyiniz.\n"), KokBul()
     except ZeroDivisionError:
         print("Lütfen sıfırdan farklı bir değer giriniz.\n")
         KokBul()
@@ -31,11 +40,7 @@ def KatsayıAl():
         KokBul()
     except UnboundLocalError:
         print("\n")
-    if (k_A != 0 and k_B != 0 and k_C != 0):    # Katsayıların girilen değerlerin arasında sıfır olup olmadığı kontrol ediliyor
-        katsayılar.append(k_A)
-        katsayılar.append(k_B)
-        katsayılar.append(k_C)
-    else:print("Katsayı değerleri sıfır olamaz.Tekrar deneyiniz.\n"),KokBul()
+
 
 def Tekrar():
 
